@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="css/estilo.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô Online</title>
+</head>
+<body>
+    <h1>Pedra, Papel e Tesoura Online</h1>
+    <div id="game"></div>
+    <script>
+        let escolha = "";
+        let vitoria = 0;
+        let empate = 0;
+        let derrota = 0;
+        let fim = 0;
+        while (fim < 999) {
+            var jogo = ["Pedra","Papel","Tesoura"];
+            var escolhajogo = jogo[Math.floor(Math.random()*jogo.length)];
+            escolha = prompt("Jokenpô!\nEscolha sua arma:\n1. Pedra\n2. Papel\n3. Tesoura\nDigite 0 para sair.");
+            if (escolha === "1") {
+                if (escolhajogo === "Pedra") {
+                    escolha = prompt("Empate! A máquina escolheu: Pedra\nVocê escolheu: Pedra\nAperte Enter para continuar\nDigite 0 para sair.");
+                    empate++;
+                }
+                else if (escolhajogo === "Papel") {
+                    escolha = prompt("Você perdeu! A máquina escolheu: Papel\nVocê escolheu: Pedra\nAperte Enter para continuar\nDigite 0 para sair.");
+                    derrota++;
+                }
+                else {
+                    escolha = prompt("Você ganhou! A máquina escolheu: Tesoura\nVocê escolheu: Pedra\nAperte Enter para continuar\nDigite 0 para sair.");
+                    vitoria++;
+                }
+            } else if (escolha === "2") {
+                if (escolhajogo === "Pedra") {
+                    escolha = prompt("Você ganhou! A máquina escolheu: Pedra\nVocê escolheu: Papel\nAperte Enter para continuar\nDigite 0 para sair.");
+                    vitoria++;
+                }
+                else if (escolhajogo === "Papel") {
+                    escolha = prompt("Empate! A máquina escolheu: Papel\nVocê escolheu: Papel\nAperte Enter para continuar\nDigite 0 para sair.");
+                    empate++;
+                }
+                else {
+                    escolha = prompt("Você perdeu! A máquina escolheu: Tesoura\nVocê escolheu: Papel\nAperte Enter para continuar\nDigite 0 para sair.");
+                    derrota++;
+                }
+            } else if (escolha === "3") {
+                if (escolhajogo === "Pedra") {
+                    escolha = prompt("Você perdeu! A máquina escolheu: Pedra\nVocê escolheu: Tesoura\nAperte Enter para continuar\nDigite 0 para sair.");
+                    derrota++;
+                }
+                else if (escolhajogo === "Papel") {
+                    escolha = prompt("Você ganhou! A máquina escolheu: Papel\nVocê escolheu: Tesoura\nAperte Enter para continuar\nDigite 0 para sair.");
+                    vitoria++;
+                }
+                else {
+                    escolha = prompt("Empate! A máquina escolheu: Tesoura\nVocê escolheu: Tesoura\nAperte Enter para continuar\nDigite 0 para sair.");
+                    empate++;
+                }
+            }
+            if (escolha === "0"){
+            fim = 1000
+        }
+    }
+        document.getElementById("game").innerHTML= "Total de Vitórias = " + vitoria + "<br>Total de Derrotas = " + derrota + "<br>Total de Empates = " + empate;
+    </script>
+</body>
+
+</html>
